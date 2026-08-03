@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rita Joice | Confeitaria para Eventos</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#FAF7F2',
+                            card: '#FFFFFF',
+                            text: '#2A231F',
+                            muted: '#6E6660',
+                            accent: '#C49A84',
+                            accentHover: '#A87E69',
+                            soft: '#F3EDE6',
+                            border: '#E8DFD5',
+                            borderDark: '#D6C9BC'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FAF7F2;
+            color: #2A231F;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+
+        .font-editorial {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.01em;
+        }
+
+        /* Glassmorphism Luxury Header */
+        .glass-header {
+            background: rgba(250, 247, 242, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(232, 223, 213, 0.7);
+        }
+
+        /* Scroll reveal effect */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button micro-interactions */
+        .btn-brand-accent {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 18px rgba(196, 154, 132, 0.22);
+        }
+        
+        .btn-brand-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(196, 154, 132, 0.35);
+        }
+
+        .btn-brand-accent:active {
+            transform: scale(0.98);
+        }
+
+        .line-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #E8DFD5 50%, transparent 100%);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF7F2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D6C9BC;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent/20 selection:text-brand-text">
+
+    <header class="sticky top-0 z-40 glass-header transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Clean Brand Name -->
+            <a href="#" class="flex flex-col group">
+                <span class="font-editorial text-2xl sm:text-3xl font-light tracking-[0.12em] text-brand-text uppercase group-hover:text-brand-accent transition-colors">Rita Joice</span>
+                <span class="text-[9px] uppercase tracking-[0.3em] text-brand-accent -mt-1 font-medium">Confeitaria para Eventos</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-[11px] font-medium tracking-[0.18em] uppercase text-brand-muted">
+                <a href="#por-que-rita" class="hover:text-brand-text transition-colors">Vantagens</a>
+                <a href="#como-funciona" class="hover:text-brand-text transition-colors">Como Funciona</a>
+                <a href="#faq" class="hover:text-brand-text transition-colors">Dúvidas</a>
+            </nav>
+            
+            <!-- Direct Header CTA -->
+            <a href="https://wa.me/5566996413664?text=Ol%C3%A1%2C%20Rita!%20Vim%20pelo%20Instagram%20e%20gostaria%20de%20solicitar%20o%20seu%20card%C3%A1pio%20com%20tabela%20de%20valores." 
+               target="_blank"
+               rel="noopener noreferrer"
+               class="flex items-center gap-2 px-4 py-2.5 rounded-full bg-brand-text text-white text-[11px] font-medium tracking-[0.15em] uppercase hover:bg-brand-accent transition-all duration-300 shadow-sm">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5 text-brand-accent"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative pt-8 pb-12 sm:pt-16 sm:pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto">
+                
+                <!-- Tagline -->
+                <div class="reveal-on-scroll inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-border shadow-xs mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
+                    <span class="text-[10px] sm:text-[11px] font-medium tracking-[0.22em] text-brand-muted uppercase">Casamentos • Aniversários • 15 Anos</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="reveal-on-scroll font-editorial text-4xl sm:text-6xl text-brand-text leading-[1.12] font-light mb-6">
+                    Toda a parte doce do seu evento <br class="hidden sm:inline"/>
+                    em um <span class="italic font-normal text-brand-accent">único fornecedor</span>.
+                </h1>
+
+                <!-- Subheading -->
+                <p class="reveal-on-scroll text-brand-muted text-sm sm:text-base leading-relaxed font-light mb-8 max-w-xl mx-auto">
+                    Bolos para festas, doces finos, doces tradicionais e bem-casados reunidos com alta qualidade e a tranquilidade da <strong class="text-brand-text font-medium">montagem da mesa no próprio local</strong>.
+                </p>
+
+                <!-- Fast Category Buttons -->
+                <div class="reveal-on-scroll bg-white p-5 sm:p-6 rounded-3xl border border-brand-border shadow-xs mb-8">
+                    <p class="text-[10px] font-semibold tracking-[0.22em] text-brand-accent uppercase mb-4 text-center">
+                        Selecione seu evento para falar no WhatsApp:
+                    </p>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                        <button onclick="sendQuickMessage('Casamento')" class="p-3 rounded-2xl bg-brand-soft hover:bg-brand-text hover:text-white border border-brand-border text-xs font-medium text-brand-text transition-all duration-300 flex flex-col items-center gap-2 text-center group">
+                            <i data-lucide="heart" class="w-4 h-4 text-brand-accent transition-colors"></i>
+                            <span class="tracking-wider uppercase text-[10px]">Casamento</span>
+                        </button>
+
+                        <button onclick="sendQuickMessage('15 Anos')" class="p-3 rounded-2xl bg-brand-soft hover:bg-brand-text hover:text-white border border-brand-border text-xs font-medium text-brand-text transition-all duration-300 flex flex-col items-center gap-2 text-center group">
+                            <i data-lucide="crown" class="w-4 h-4 text-brand-accent transition-colors"></i>
+                            <span class="tracking-wider uppercase text-[10px]">15 Anos</span>
+                        </button>
+
+                        <button onclick="sendQuickMessage('Aniversário')" class="p-3 rounded-2xl bg-brand-soft hover:bg-brand-text hover:text-white border border-brand-border text-xs font-medium text-brand-text transition-all duration-300 flex flex-col items-center gap-2 text-center group">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-brand-accent transition-colors"></i>
+                            <span class="tracking-wider uppercase text-[10px]">Aniversário</span>
+                        </button>
+
+                        <button onclick="sendQuickMessage('Outro Evento')" class="p-3 rounded-2xl bg-brand-soft hover:bg-brand-text hover:text-white border border-brand-border text-xs font-medium text-brand-text transition-all duration-300 flex flex-col items-center gap-2 text-center group">
+                            <i data-lucide="gift" class="w-4 h-4 text-brand-accent transition-colors"></i>
+                            <span class="tracking-wider uppercase text-[10px]">Outros</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="por-que-rita" class="py-10 sm:py-14 bg-white border-y border-brand-border">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <span class="text-[10px] font-semibold tracking-[0.25em] text-brand-accent uppercase block mb-1">Praticidade & Confiança</span>
+                    <h2 class="font-editorial text-2xl sm:text-4xl text-brand-text font-light">Diferenciais do Serviço</h2>
+                </div>
+
+                <!-- Minimalist grid with clean icons and breathing room -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                    
+                    <!-- Item 1 -->
+                    <div class="reveal-on-scroll flex items-start gap-3.5">
+                        <div class="w-8 h-8 rounded-full bg-brand-soft text-brand-accent flex items-center justify-center shrink-0 mt-0.5 border border-brand-border/60">
+                            <i data-lucide="check-circle" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-editorial text-lg font-normal text-brand-text mb-0.5">Solução Única</h3>
+                            <p class="text-[11px] sm:text-xs text-brand-muted leading-relaxed font-light">
+                                Bolos, doces finos, doces tradicionais e bem-casados reunidos em um só fornecedor.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="reveal-on-scroll flex items-start gap-3.5">
+                        <div class="w-8 h-8 rounded-full bg-brand-soft text-brand-accent flex items-center justify-center shrink-0 mt-0.5 border border-brand-border/60">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-editorial text-lg font-normal text-brand-text mb-0.5">Montagem da Mesa</h3>
+                            <p class="text-[11px] sm:text-xs text-brand-muted leading-relaxed font-light">
+                                A própria Rita realiza a organização e montagem dos doces no local do evento.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="reveal-on-scroll flex items-start gap-3.5">
+                        <div class="w-8 h-8 rounded-full bg-brand-soft text-brand-accent flex items-center justify-center shrink-0 mt-0.5 border border-brand-border/60">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-editorial text-lg font-normal text-brand-text mb-0.5">Feito sob Medida</h3>
+                            <p class="text-[11px] sm:text-xs text-brand-muted leading-relaxed font-light">
+                                Ingredientes selecionados e preparo artesanal de altíssima qualidade.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="reveal-on-scroll flex items-start gap-3.5">
+                        <div class="w-8 h-8 rounded-full bg-brand-soft text-brand-accent flex items-center justify-center shrink-0 mt-0.5 border border-brand-border/60">
+                            <i data-lucide="credit-card" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-editorial text-lg font-normal text-brand-text mb-0.5">Pagamento Facilitado</h3>
+                            <p class="text-[11px] sm:text-xs text-brand-muted leading-relaxed font-light">
+                                Opção no cartão de crédito ou parcelamento programado até a data da festa.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="como-funciona" class="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-2xl mx-auto">
+            <div class="text-center mb-8">
+                <span class="text-[10px] font-semibold tracking-[0.25em] text-brand-accent uppercase block mb-1">Simples & Transparente</span>
+                <h2 class="font-editorial text-2xl sm:text-4xl text-brand-text font-light">Como funciona o atendimento</h2>
+            </div>
+
+            <!-- Ultra-Clean Vertical Timeline -->
+            <div class="relative pl-6 sm:pl-8 border-l border-brand-border space-y-6 sm:space-y-7 my-2 ml-3 sm:ml-6">
+                
+                <!-- Step 1 -->
+                <div class="reveal-on-scroll relative">
+                    <span class="absolute -left-[31px] sm:-left-[39px] top-0.5 w-5 h-5 rounded-full bg-brand-text text-white text-[9px] font-bold flex items-center justify-center">1</span>
+                    <h3 class="font-editorial text-base sm:text-lg font-medium text-brand-text">Contato no WhatsApp</h3>
+                    <p class="text-[11px] sm:text-xs text-brand-muted font-light mt-0.5 leading-relaxed">
+                        Você nos chama diretamente no WhatsApp clicando nos botões do site.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="reveal-on-scroll relative">
+                    <span class="absolute -left-[31px] sm:-left-[39px] top-0.5 w-5 h-5 rounded-full bg-brand-soft border border-brand-border text-brand-accent text-[9px] font-bold flex items-center justify-center">2</span>
+                    <h3 class="font-editorial text-base sm:text-lg font-medium text-brand-text">Dados da Festa</h3>
+                    <p class="text-[11px] sm:text-xs text-brand-muted font-light mt-0.5 leading-relaxed">
+                        Você nos conta a data, o local e o número estimado de convidados.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="reveal-on-scroll relative">
+                    <span class="absolute -left-[31px] sm:-left-[39px] top-0.5 w-5 h-5 rounded-full bg-brand-accent text-white text-[9px] font-bold flex items-center justify-center">3</span>
+                    <div class="flex items-center gap-2">
+                        <h3 class="font-editorial text-base sm:text-lg font-medium text-brand-text">Catálogo em PDF</h3>
+                        <span class="text-[9px] bg-brand-soft text-brand-accent px-2 py-0.5 rounded-full uppercase tracking-wider font-semibold border border-brand-border">Envio do Cardápio</span>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-brand-muted font-light mt-0.5 leading-relaxed">
+                        A Rita envia o cardápio em PDF com a tabela de valores para você selecionar seus itens.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="reveal-on-scroll relative">
+                    <span class="absolute -left-[31px] sm:-left-[39px] top-0.5 w-5 h-5 rounded-full bg-brand-soft border border-brand-border text-brand-accent text-[9px] font-bold flex items-center justify-center">4</span>
+                    <h3 class="font-editorial text-base sm:text-lg font-medium text-brand-text">Reserva da Data</h3>
+                    <p class="text-[11px] sm:text-xs text-brand-muted font-light mt-0.5 leading-relaxed">
+                        Confirmação do pedido com entrada e parcelas programadas até o evento.
+                    </p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="reveal-on-scroll relative">
+                    <span class="absolute -left-[31px] sm:-left-[39px] top-0.5 w-5 h-5 rounded-full bg-brand-soft border border-brand-border text-brand-accent text-[9px] font-bold flex items-center justify-center">5</span>
+                    <h3 class="font-editorial text-base sm:text-lg font-medium text-brand-text">Entrega & Montagem</h3>
+                    <p class="text-[11px] sm:text-xs text-brand-muted font-light mt-0.5 leading-relaxed">
+                        No dia do evento, entregamos e realizamos a montagem da mesa de doces no local.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="orcamento" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <div class="bg-brand-soft border border-brand-border rounded-[2rem] p-6 sm:p-10 shadow-sm relative overflow-hidden">
+                
+                <div class="max-w-2xl mx-auto text-center relative z-10">
+                    
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-border text-brand-accent text-[10px] font-medium tracking-[0.2em] uppercase mb-4">
+                        <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                        <span>Cardápio & Valores no WhatsApp</span>
+                    </div>
+
+                    <h2 class="font-editorial text-3xl sm:text-4xl font-light mb-3 text-brand-text">
+                        Solicite seu Orçamento Personalizado
+                    </h2>
+                    <p class="text-xs sm:text-sm text-brand-muted font-light mb-8 max-w-md mx-auto">
+                        Selecione as opções abaixo para enviar os detalhes do seu evento direto para o WhatsApp da Rita:
+                    </p>
+
+                    <!-- Order Selection Form -->
+                    <form id="simularForm" onsubmit="handleSimulation(event)" class="space-y-5 text-left">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <!-- Event Type -->
+                            <div>
+                                <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-2">Qual é o seu evento?</label>
+                                <select id="simEventType" class="w-full bg-white border border-brand-border text-brand-text text-xs rounded-2xl p-3.5 focus:outline-none focus:border-brand-accent transition-colors">
+                                    <option value="Casamento">Casamento 💍</option>
+                                    <option value="Aniversário de 15 Anos">Aniversário de 15 Anos ✨</option>
+                                    <option value="Aniversário Festivo">Aniversário / Festa 🎉</option>
+                                    <option value="Outro Evento Especial">Outro Evento Especial 🥂</option>
+                                </select>
+                            </div>
+
+                            <!-- Event Date -->
+                            <div>
+                                <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-2">Data do Evento</label>
+                                <input type="text" id="simEventDate" placeholder="Ex: 15/12/2026 ou A definir" class="w-full bg-white border border-brand-border text-brand-text text-xs rounded-2xl p-3.5 focus:outline-none focus:border-brand-accent transition-colors">
+                            </div>
+
+                            <!-- Guest Count -->
+                            <div>
+                                <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-2">Estimativa de Convidados</label>
+                                <select id="simGuests" class="w-full bg-white border border-brand-border text-brand-text text-xs rounded-2xl p-3.5 focus:outline-none focus:border-brand-accent transition-colors">
+                                    <option value="Até 20 convidados (Festa Íntima / Família)">Até 20 convidados (Festa Íntima / Família)</option>
+                                    <option value="20 a 50 convidados">20 a 50 convidados</option>
+                                    <option value="50 a 100 convidados">50 a 100 convidados</option>
+                                    <option value="100 a 200 convidados">100 a 200 convidados</option>
+                                    <option value="Mais de 200 convidados">Mais de 200 convidados</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Checkboxes / Product Interest -->
+                        <div>
+                            <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-3">Selecione os itens do seu interesse:</label>
+                            
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs">
+                                
+                                <!-- Option: Bolos -->
+                                <label class="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-brand-border cursor-pointer hover:border-brand-accent transition-colors">
+                                    <input type="checkbox" value="Bolo para Eventos" class="accent-brand-accent w-4 h-4 rounded">
+                                    <span class="text-brand-text font-medium text-xs">Bolos</span>
+                                </label>
+
+                                <!-- Option: Doces Finos -->
+                                <label class="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-brand-border cursor-pointer hover:border-brand-accent transition-colors">
+                                    <input type="checkbox" value="Doces Finos" class="accent-brand-accent w-4 h-4 rounded">
+                                    <span class="text-brand-text font-medium text-xs">Doces Finos</span>
+                                </label>
+
+                                <!-- Option: Doces Tradicionais -->
+                                <label class="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-brand-border cursor-pointer hover:border-brand-accent transition-colors">
+                                    <input type="checkbox" value="Doces Tradicionais Gourmet" class="accent-brand-accent w-4 h-4 rounded">
+                                    <span class="text-brand-text font-medium text-xs">Doces Tradicionais</span>
+                                </label>
+
+                                <!-- Option: Bem-Casados -->
+                                <label class="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-brand-border cursor-pointer hover:border-brand-accent transition-colors">
+                                    <input type="checkbox" value="Bem-Casados" class="accent-brand-accent w-4 h-4 rounded">
+                                    <span class="text-brand-text font-medium text-xs">Bem-Casados</span>
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <!-- Submit CTA -->
+                        <button type="submit" class="btn-brand-accent w-full py-4 px-6 bg-brand-accent text-white font-medium text-xs tracking-[0.18em] uppercase rounded-2xl hover:bg-brand-accentHover transition-colors flex items-center justify-center gap-2.5 mt-4">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Solicitar Cardápio & Valores no WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-12 bg-white border-t border-brand-border">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6">
+                
+                <div class="text-center mb-8">
+                    <span class="text-[10px] font-semibold tracking-[0.25em] text-brand-accent uppercase block mb-1">Tire Suas Dúvidas</span>
+                    <h2 class="font-editorial text-2xl sm:text-3xl text-brand-text font-light">Perguntas Frequentes</h2>
+                </div>
+
+                <div class="space-y-3">
+                    
+                    <!-- Question 1: Payment -->
+                    <div class="bg-brand-soft rounded-2xl border border-brand-border overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-4 sm:p-5 flex items-center justify-between text-xs sm:text-sm font-medium text-brand-text">
+                            <span>Como funciona a forma de pagamento?</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-brand-muted transition-transform duration-300"></i>
+                        </button>
+                        <div class="hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-brand-muted leading-relaxed font-light border-t border-brand-border/60 pt-3">
+                            Aceitamos cartão de crédito, Pix e parcelamento programado. A reserva da data é feita mediante valor de entrada, e o saldo restante pode ser parcelado no cartão de crédito ou em pagamentos combinados até a data do seu evento.
+                        </div>
+                    </div>
+
+                    <!-- Question 2: Minimum Order Quantities -->
+                    <div class="bg-brand-soft rounded-2xl border border-brand-border overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-4 sm:p-5 flex items-center justify-between text-xs sm:text-sm font-medium text-brand-text">
+                            <span>Qual é a quantidade mínima para fazer um pedido?</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-brand-muted transition-transform duration-300"></i>
+                        </button>
+                        <div class="hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-brand-muted leading-relaxed font-light border-t border-brand-border/60 pt-3">
+                            Para doces tradicionais, doces finos e bem-casados, o pedido mínimo é de 10 unidades de cada sabor. Já para os bolos, a produção é feita a partir de 1 kg.
+                        </div>
+                    </div>
+
+                    <!-- Question 3: Table Setup -->
+                    <div class="bg-brand-soft rounded-2xl border border-brand-border overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-4 sm:p-5 flex items-center justify-between text-xs sm:text-sm font-medium text-brand-text">
+                            <span>Qualquer quantidade inclui a montagem da mesa?</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-brand-muted transition-transform duration-300"></i>
+                        </button>
+                        <div class="hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-brand-muted leading-relaxed font-light border-t border-brand-border/60 pt-3">
+                            A montagem no local do evento é combinada de acordo com o porte do pedido e a necessidade do cliente. Para grandes eventos com mesa completa de doces, a Rita realiza pessoalmente toda a organização e disposição dos itens.
+                        </div>
+                    </div>
+
+                    <!-- Question 3: Advance Booking -->
+                    <div class="bg-brand-soft rounded-2xl border border-brand-border overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-4 sm:p-5 flex items-center justify-between text-xs sm:text-sm font-medium text-brand-text">
+                            <span>Com quanta antecedência devo fazer o meu pedido?</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-brand-muted transition-transform duration-300"></i>
+                        </button>
+                        <div class="hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-brand-muted leading-relaxed font-light border-t border-brand-border/60 pt-3">
+                            Recomendamos entrar em contato de 30 a 90 dias antes da data do evento. Isso garante a disponibilidade em nossa agenda e permite diluir os pagamentos até o dia da festa.
+                        </div>
+                    </div>
+
+                    <!-- Question 4: PDF Menu -->
+                    <div class="bg-brand-soft rounded-2xl border border-brand-border overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-4 sm:p-5 flex items-center justify-between text-xs sm:text-sm font-medium text-brand-text">
+                            <span>Como recebo o cardápio com os valores?</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-brand-muted transition-transform duration-300"></i>
+                        </button>
+                        <div class="hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs text-brand-muted leading-relaxed font-light border-t border-brand-border/60 pt-3">
+                            Assim que você nos chama no WhatsApp, a Rita envia o nosso catálogo em PDF completo com a lista detalhada de itens, opções de sabores de bolos, variedades de doces e a tabela de valores para facilitar a sua escolha.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-brand-soft border-t border-brand-border py-10 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-5xl mx-auto text-center flex flex-col items-center">
+            
+            <a href="#" class="font-editorial text-3xl font-light tracking-[0.15em] text-brand-text uppercase mb-1">Rita Joice</a>
+            <p class="text-[9px] uppercase tracking-[0.3em] text-brand-accent font-semibold mb-5">Confeitaria para Eventos</p>
+
+            <p class="text-xs text-brand-text font-medium tracking-wider mb-6">
+                WhatsApp: (66) 99641-3664
+            </p>
+
+            <!-- Scroll to top button -->
+            <button onclick="scrollToTop()" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-border text-brand-muted hover:text-brand-text hover:border-brand-accent text-[10px] font-semibold tracking-[0.18em] uppercase transition-all mb-6">
+                <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+                <span>Voltar ao Topo</span>
+            </button>
+
+            <p class="text-[10px] text-brand-muted font-light">
+                © Rita Joice Confeitaria. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Minimal Floating WhatsApp Action -->
+    <div class="fixed bottom-5 right-5 z-50">
+        <a href="https://wa.me/5566996413664?text=Ol%C3%A1%2C%20Rita!%20Vim%20pelo%20Instagram%20e%20gostaria%20de%20solicitar%20o%20seu%20card%C3%A1pio%20em%20PDF." 
+           target="_blank" 
+           rel="noopener noreferrer"
+           aria-label="Falar com a Rita no WhatsApp"
+           class="group flex items-center gap-2.5 p-3.5 sm:px-5 sm:py-3.5 rounded-full bg-brand-text text-white shadow-xl hover:bg-brand-accent transition-all duration-300">
+            <div class="relative">
+                <i data-lucide="message-circle" class="w-5 h-5 text-brand-accent group-hover:text-white transition-colors"></i>
+                <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-brand-text"></span>
+            </div>
+            <span class="text-xs font-medium tracking-[0.12em] uppercase hidden sm:inline">Falar no WhatsApp</span>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            lucide.createIcons();
+            initScrollReveal();
+        });
+
+        const PHONE_NUMBER = "5566996413664";
+
+        // Direct WhatsApp quick option
+        function sendQuickMessage(eventType) {
+            const message = `Olá, Rita! Vim pelo seu Instagram e gostaria de solicitar o cardápio em PDF para o meu evento: *${eventType}*.`;
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/${PHONE_NUMBER}?text=${encoded}`, '_blank');
+        }
+
+        // Handle customized form submit
+        function handleSimulation(e) {
+            e.preventDefault();
+            
+            const eventType = document.getElementById('simEventType').value;
+            const eventDate = document.getElementById('simEventDate').value.trim() || 'A definir';
+            const guests = document.getElementById('simGuests').value;
+            
+            const checkboxes = document.querySelectorAll('#simularForm input[type="checkbox"]:checked');
+            const items = Array.from(checkboxes).map(cb => cb.value).join(', ');
+
+            const text = `Olá, Rita! Vim pelo seu Instagram e fiz a seleção das opções para o meu evento:\n\n` +
+                         `• *Evento:* ${eventType}\n` +
+                         `• *Data:* ${eventDate}\n` +
+                         `• *Convidados:* ${guests}\n` +
+                         `• *Itens de interesse:* ${items || 'A definir'}\n\n` +
+                         `Pode me enviar o Cardápio em PDF com a tabela de valores para eu escolher?`;
+
+            window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // FAQ Toggle
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('[data-lucide="chevron-down"]');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                if (icon) icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Smooth Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Scroll reveal trigger
+        function initScrollReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        }
+    </script>
+</body>
+</html>

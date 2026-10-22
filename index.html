@@ -159,33 +159,89 @@
                     Bolos para festas, doces finos, doces tradicionais e bem-casados reunidos com alta qualidade e a tranquilidade da <strong class="text-brand-text font-medium">montagem da mesa no próprio local</strong>.
                 </p>
 
-                <!-- Fast Category Buttons -->
-                <div class="reveal-on-scroll bg-white p-5 sm:p-6 rounded-3xl border border-brand-border shadow-xs mb-8">
-                    <p class="text-[10px] font-semibold tracking-[0.22em] text-brand-accent uppercase mb-4 text-center">
-                        Selecione seu evento para falar no WhatsApp:
-                    </p>
-                    
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                        <button onclick="sendQuickMessage('Casamento')" class="p-3 rounded-2xl bg-brand-soft hover:bg-brand-text hover:text-white border border-brand-border text-xs font-medium text-brand-text transition-all duration-300 flex flex-col items-center gap-2 text-center group">
-                            <i data-lucide="heart" class="w-4 h-4 text-brand-accent transition-colors"></i>
-                            <span class="tracking-wider uppercase text-[10px]">Casamento</span>
-                        </button>
-
-                        <button onclick="sendQuickMessage('15 Anos')" class="p-3 rounded-2xl bg-brand-soft hover:bg-brand-text hover:text-white border border-brand-border text-xs font-medium text-brand-text transition-all duration-300 flex flex-col items-center gap-2 text-center group">
-                            <i data-lucide="crown" class="w-4 h-4 text-brand-accent transition-colors"></i>
-                            <span class="tracking-wider uppercase text-[10px]">15 Anos</span>
-                        </button>
-
-                        <button onclick="sendQuickMessage('Aniversário')" class="p-3 rounded-2xl bg-brand-soft hover:bg-brand-text hover:text-white border border-brand-border text-xs font-medium text-brand-text transition-all duration-300 flex flex-col items-center gap-2 text-center group">
-                            <i data-lucide="sparkles" class="w-4 h-4 text-brand-accent transition-colors"></i>
-                            <span class="tracking-wider uppercase text-[10px]">Aniversário</span>
-                        </button>
-
-                        <button onclick="sendQuickMessage('Outro Evento')" class="p-3 rounded-2xl bg-brand-soft hover:bg-brand-text hover:text-white border border-brand-border text-xs font-medium text-brand-text transition-all duration-300 flex flex-col items-center gap-2 text-center group">
-                            <i data-lucide="gift" class="w-4 h-4 text-brand-accent transition-colors"></i>
-                            <span class="tracking-wider uppercase text-[10px]">Outros</span>
-                        </button>
+                <!-- Fast Filter Form Header -->
+                <div class="reveal-on-scroll bg-white p-5 sm:p-7 rounded-3xl border border-brand-border shadow-sm text-left max-w-2xl mx-auto mb-4">
+                    <div class="text-center mb-4">
+                        <span class="text-[10px] font-semibold tracking-[0.2em] text-brand-accent uppercase block mb-1">
+                            Receber Cardápio em PDF
+                        </span>
+                        <p class="text-xs text-brand-muted font-light">
+                            Preencha os dados abaixo para receber as opções e valores no seu WhatsApp:
+                        </p>
                     </div>
+
+                    <form id="heroForm" onsubmit="handleHeroSubmit(event)" class="space-y-4">
+                        
+                        <!-- Customer Name & Event Type -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                            <div>
+                                <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-1.5">Seu Nome</label>
+                                <input type="text" id="heroName" required placeholder="Digite seu nome" class="w-full bg-brand-soft border border-brand-border text-brand-text text-xs rounded-2xl p-3 focus:outline-none focus:border-brand-accent transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-1.5">Tipo de Evento</label>
+                                <select id="heroEventType" class="w-full bg-brand-soft border border-brand-border text-brand-text text-xs rounded-2xl p-3 focus:outline-none focus:border-brand-accent transition-colors">
+                                    <option value="Casamento">Casamento 💍</option>
+                                    <option value="Aniversário de 15 Anos">Aniversário de 15 Anos ✨</option>
+                                    <option value="Aniversário / Festa">Aniversário / Festa 🎉</option>
+                                    <option value="Outro Evento Especial">Outro Evento Especial 🥂</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Event Date & Guest Count -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                            <div>
+                                <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-1.5">Data do Evento</label>
+                                <input type="text" id="heroEventDate" placeholder="Ex: 15/12/2026 ou A definir" class="w-full bg-brand-soft border border-brand-border text-brand-text text-xs rounded-2xl p-3 focus:outline-none focus:border-brand-accent transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-1.5">Estimativa de Convidados</label>
+                                <select id="heroGuests" class="w-full bg-brand-soft border border-brand-border text-brand-text text-xs rounded-2xl p-3 focus:outline-none focus:border-brand-accent transition-colors">
+                                    <option value="Até 20 convidados (Festa Íntima / Família)">Até 20 convidados (Festa Íntima / Família)</option>
+                                    <option value="20 a 50 convidados">20 a 50 convidados</option>
+                                    <option value="50 a 100 convidados">50 a 100 convidados</option>
+                                    <option value="100 a 200 convidados">100 a 200 convidados</option>
+                                    <option value="Mais de 200 convidados">Mais de 200 convidados</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Menus to Receive -->
+                        <div>
+                            <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-2">Quais cardápios deseja receber em PDF?</label>
+                            
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                                <label class="flex items-center gap-2 p-2.5 rounded-xl bg-brand-soft border border-brand-border cursor-pointer hover:border-brand-accent transition-colors">
+                                    <input type="checkbox" value="Bolo para Eventos" class="accent-brand-accent w-4 h-4 rounded">
+                                    <span class="text-brand-text font-medium text-[11px]">Bolos</span>
+                                </label>
+
+                                <label class="flex items-center gap-2 p-2.5 rounded-xl bg-brand-soft border border-brand-border cursor-pointer hover:border-brand-accent transition-colors">
+                                    <input type="checkbox" value="Doces Finos" class="accent-brand-accent w-4 h-4 rounded">
+                                    <span class="text-brand-text font-medium text-[11px]">Doces Finos</span>
+                                </label>
+
+                                <label class="flex items-center gap-2 p-2.5 rounded-xl bg-brand-soft border border-brand-border cursor-pointer hover:border-brand-accent transition-colors">
+                                    <input type="checkbox" value="Doces Tradicionais Gourmet" class="accent-brand-accent w-4 h-4 rounded">
+                                    <span class="text-brand-text font-medium text-[11px]">Tradicionais</span>
+                                </label>
+
+                                <label class="flex items-center gap-2 p-2.5 rounded-xl bg-brand-soft border border-brand-border cursor-pointer hover:border-brand-accent transition-colors">
+                                    <input type="checkbox" value="Bem-Casados" class="accent-brand-accent w-4 h-4 rounded">
+                                    <span class="text-brand-text font-medium text-[11px]">Bem-Casados</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit CTA -->
+                        <button type="submit" class="btn-brand-accent w-full py-3.5 px-5 bg-brand-accent text-white font-medium text-xs tracking-[0.18em] uppercase rounded-2xl hover:bg-brand-accentHover transition-colors flex items-center justify-center gap-2.5 mt-3">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Solicitar Cardápios no WhatsApp</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -317,100 +373,6 @@
             </div>
         </section>
 
-        <section id="orcamento" class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-            <div class="bg-brand-soft border border-brand-border rounded-[2rem] p-6 sm:p-10 shadow-sm relative overflow-hidden">
-                
-                <div class="max-w-2xl mx-auto text-center relative z-10">
-                    
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-border text-brand-accent text-[10px] font-medium tracking-[0.2em] uppercase mb-4">
-                        <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-                        <span>Cardápio & Valores no WhatsApp</span>
-                    </div>
-
-                    <h2 class="font-editorial text-3xl sm:text-4xl font-light mb-3 text-brand-text">
-                        Solicite seu Orçamento Personalizado
-                    </h2>
-                    <p class="text-xs sm:text-sm text-brand-muted font-light mb-8 max-w-md mx-auto">
-                        Selecione as opções abaixo para enviar os detalhes do seu evento direto para o WhatsApp da Rita:
-                    </p>
-
-                    <!-- Order Selection Form -->
-                    <form id="simularForm" onsubmit="handleSimulation(event)" class="space-y-5 text-left">
-                        
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            <!-- Event Type -->
-                            <div>
-                                <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-2">Qual é o seu evento?</label>
-                                <select id="simEventType" class="w-full bg-white border border-brand-border text-brand-text text-xs rounded-2xl p-3.5 focus:outline-none focus:border-brand-accent transition-colors">
-                                    <option value="Casamento">Casamento 💍</option>
-                                    <option value="Aniversário de 15 Anos">Aniversário de 15 Anos ✨</option>
-                                    <option value="Aniversário Festivo">Aniversário / Festa 🎉</option>
-                                    <option value="Outro Evento Especial">Outro Evento Especial 🥂</option>
-                                </select>
-                            </div>
-
-                            <!-- Event Date -->
-                            <div>
-                                <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-2">Data do Evento</label>
-                                <input type="text" id="simEventDate" placeholder="Ex: 15/12/2026 ou A definir" class="w-full bg-white border border-brand-border text-brand-text text-xs rounded-2xl p-3.5 focus:outline-none focus:border-brand-accent transition-colors">
-                            </div>
-
-                            <!-- Guest Count -->
-                            <div>
-                                <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-2">Estimativa de Convidados</label>
-                                <select id="simGuests" class="w-full bg-white border border-brand-border text-brand-text text-xs rounded-2xl p-3.5 focus:outline-none focus:border-brand-accent transition-colors">
-                                    <option value="Até 20 convidados (Festa Íntima / Família)">Até 20 convidados (Festa Íntima / Família)</option>
-                                    <option value="20 a 50 convidados">20 a 50 convidados</option>
-                                    <option value="50 a 100 convidados">50 a 100 convidados</option>
-                                    <option value="100 a 200 convidados">100 a 200 convidados</option>
-                                    <option value="Mais de 200 convidados">Mais de 200 convidados</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Checkboxes / Product Interest -->
-                        <div>
-                            <label class="block text-[10px] font-semibold text-brand-text uppercase tracking-[0.18em] mb-3">Selecione os itens do seu interesse:</label>
-                            
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs">
-                                
-                                <!-- Option: Bolos -->
-                                <label class="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-brand-border cursor-pointer hover:border-brand-accent transition-colors">
-                                    <input type="checkbox" value="Bolo para Eventos" class="accent-brand-accent w-4 h-4 rounded">
-                                    <span class="text-brand-text font-medium text-xs">Bolos</span>
-                                </label>
-
-                                <!-- Option: Doces Finos -->
-                                <label class="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-brand-border cursor-pointer hover:border-brand-accent transition-colors">
-                                    <input type="checkbox" value="Doces Finos" class="accent-brand-accent w-4 h-4 rounded">
-                                    <span class="text-brand-text font-medium text-xs">Doces Finos</span>
-                                </label>
-
-                                <!-- Option: Doces Tradicionais -->
-                                <label class="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-brand-border cursor-pointer hover:border-brand-accent transition-colors">
-                                    <input type="checkbox" value="Doces Tradicionais Gourmet" class="accent-brand-accent w-4 h-4 rounded">
-                                    <span class="text-brand-text font-medium text-xs">Doces Tradicionais</span>
-                                </label>
-
-                                <!-- Option: Bem-Casados -->
-                                <label class="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-brand-border cursor-pointer hover:border-brand-accent transition-colors">
-                                    <input type="checkbox" value="Bem-Casados" class="accent-brand-accent w-4 h-4 rounded">
-                                    <span class="text-brand-text font-medium text-xs">Bem-Casados</span>
-                                </label>
-
-                            </div>
-                        </div>
-
-                        <!-- Submit CTA -->
-                        <button type="submit" class="btn-brand-accent w-full py-4 px-6 bg-brand-accent text-white font-medium text-xs tracking-[0.18em] uppercase rounded-2xl hover:bg-brand-accentHover transition-colors flex items-center justify-center gap-2.5 mt-4">
-                            <i data-lucide="send" class="w-4 h-4"></i>
-                            <span>Solicitar Cardápio & Valores no WhatsApp</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
         <section id="faq" class="py-12 bg-white border-t border-brand-border">
             <div class="max-w-2xl mx-auto px-4 sm:px-6">
                 
@@ -526,30 +488,25 @@
 
         const PHONE_NUMBER = "5566996413664";
 
-        // Direct WhatsApp quick option
-        function sendQuickMessage(eventType) {
-            const message = `Olá, Rita! Vim pelo seu Instagram e gostaria de solicitar o cardápio em PDF para o meu evento: *${eventType}*.`;
-            const encoded = encodeURIComponent(message);
-            window.open(`https://wa.me/${PHONE_NUMBER}?text=${encoded}`, '_blank');
-        }
-
-        // Handle customized form submit
-        function handleSimulation(e) {
+        // Handle Form Submit from Hero section
+        function handleHeroSubmit(e) {
             e.preventDefault();
             
-            const eventType = document.getElementById('simEventType').value;
-            const eventDate = document.getElementById('simEventDate').value.trim() || 'A definir';
-            const guests = document.getElementById('simGuests').value;
+            const name = document.getElementById('heroName').value.trim();
+            const eventType = document.getElementById('heroEventType').value;
+            const eventDate = document.getElementById('heroEventDate').value.trim() || 'A definir';
+            const guests = document.getElementById('heroGuests').value;
             
-            const checkboxes = document.querySelectorAll('#simularForm input[type="checkbox"]:checked');
+            const checkboxes = document.querySelectorAll('#heroForm input[type="checkbox"]:checked');
             const items = Array.from(checkboxes).map(cb => cb.value).join(', ');
 
-            const text = `Olá, Rita! Vim pelo seu Instagram e fiz a seleção das opções para o meu evento:\n\n` +
+            const text = `Olá, Rita! Meu nome é *${name}* e vim pelo seu Instagram.\n\n` +
+                         `Gostaria de solicitar o cardápio em PDF com os valores para o meu evento:\n` +
                          `• *Evento:* ${eventType}\n` +
                          `• *Data:* ${eventDate}\n` +
-                         `• *Convidados:* ${guests}\n` +
-                         `• *Itens de interesse:* ${items || 'A definir'}\n\n` +
-                         `Pode me enviar o Cardápio em PDF com a tabela de valores para eu escolher?`;
+                         `• *Estimativa de Convidados:* ${guests}\n` +
+                         `• *Cardápios que quero receber:* ${items || 'Todos os cardápios'}\n\n` +
+                         `Pode me enviar as opções em PDF, por favor?`;
 
             window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
         }
